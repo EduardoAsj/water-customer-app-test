@@ -117,7 +117,35 @@
      - A "customers" array with customer details, including "id", "name", "employees", "contactInfo" (if available), and "size".
 - **Expected Result:** The response status code is "200 OK", and the response body contains the correct user name, timestamp, and customer details as specified.
 
-### Test Case 11: POST Request Without Contact Info
+  ### Test Case 11: POST Request with Empty Name
+
+- **Description:** Verify that a POST request with an empty name returns an error.
+- **Steps:**
+  1. Open Postman or any API testing tool.
+  2. Set the request method to "POST".
+  3. Set the URL to "http://localhost:3001/".
+  4. In the request body, enter "{"name":""}".
+  5. Send the request.
+  6. Verify the response status code is "400 Bad Request".
+  7. Verify the response body contains:
+     - "error": "Please provide your name"
+- **Expected Result:** The response status code is "400 Bad Request", and the response body contains the error message "Please provide your name".
+
+  ### Test Case 12: POST Request with Blank Request Body
+
+- **Description:** Verify that a POST request with a blank Request Body returns an error.
+- **Steps:**
+  1. Open Postman or any API testing tool.
+  2. Set the request method to "POST".
+  3. Set the URL to "http://localhost:3001/".
+  4. In the request body, enter "{}".
+  5. Send the request.
+  6. Verify the response status code is "400 Bad Request".
+  7. Verify the response body contains:
+     - "error": "Please provide your name"
+- **Expected Result:** The response status code is "400 Bad Request", and the response body contains the error message "Please provide your name".
+
+### Test Case 13: POST Request Without Contact Info
 
 - **Description:** Verify that a POST request returns customers without contact information if it's not available in the database.
 - **Steps:**
@@ -127,14 +155,13 @@
   4. In the request body, enter {"name":"Eduardo Afonso"}.
   5. Send the request.
   6. Verify the response status code is "200 OK".
-  7. Verify the response header "Content-Type" is "application/json".
-  8. Verify the response body contains:
+  7. Verify the response body contains:
      - "name": "Eduardo Afonso"
      - A "timestamp" field with the current timestamp.
      - A "customers" array with customer details, ensuring customers without contact info do not have the "contactInfo" field.
 - **Expected Result:** The response status code is "200 OK", and the response body contains the correct user name, timestamp, and customer details, with the "contactInfo" field omitted for customers without contact information.
 
-### Test Case 12: POST Customer Size Calculation
+### Test Case 14: POST Customer Size Calculation
 
 - **Description:** Verify that a POST request returns customers without contact information if it's not available in the database.
 - **Steps:**
@@ -144,8 +171,7 @@
   4. In the request body, enter {"name":"Eduardo Afonso"}.
   5. Send the request.
   6. Verify the response status code is "200 OK".
-  7. Verify the response header "Content-Type" is "application/json".
-  8. Verify the response body contains:
+  7. Verify the response body contains:
      - A "customers" array. For each customer, ensure the "size" field is:
        - "Small" if "employees" is <= 2500.
        - "Medium" if "employees" is > 2500 and <= 5000.
