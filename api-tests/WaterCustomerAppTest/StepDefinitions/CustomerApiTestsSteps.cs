@@ -22,6 +22,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             client = new RestClient("http://localhost:3001");
         }
 
+        // Prepare a request with an empty customer name
         [Given(@"I have an empty name")]
         public void EmptyName()
         {
@@ -30,6 +31,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine("Request prepared with empty customer name.");
         }
 
+        // Prepare a request with a blank request body
         [Given(@"I have a blank request body")]
         public void BlankRequestBody()
         {
@@ -38,6 +40,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine("Request prepared with a blank request body.");
         }
 
+        // Prepare a request with a specified name
         [Given(@"I have a name ""(.*)""")]
         public void ClientName(string clientName)
         {
@@ -54,6 +57,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine($"Response Content: {response.Content}");
         }
 
+        // Verify that the response status 
         [Then(@"I should receive a bad request response")]
         public void ReceiveBadRequestResponse()
         {
@@ -61,6 +65,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine("Verified that the response status is BadRequest.");
         }
 
+        // Verify that the error message indicates the name is required
         [Then(@"the error message should indicate that the name is required")]
         public void ErrorMessageNameRequired()
         {
@@ -68,6 +73,7 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine("Verified that the error message indicates the name is required.");
         }
 
+        // Verify that the response status is OK (200)
         [Then(@"I should receive a success response")]
         public void ReceiveSuccessResponse()
         {
@@ -75,20 +81,34 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine("Verified that the response status is OK.");
         }
 
+        // Verify that the response contains correctly calculated customer sizes
         [Then(@"the response should contain correctly calculated customer sizes")]
         public void CalculatedCustomerSizes()
         {
             var responseBody = JObject.Parse(response.Content);
             var customers = responseBody["customers"];
+            bool allCustomersCorrect = true;
+
+            // Iterate over each customer in the array
             foreach (var customer in customers)
             {
+                string customerName = customer["name"].ToString();
                 int employees = customer["employees"].Value<int>();
-                string expectedSize = GetExpectedSize(employees);
-                Assert.AreEqual(expectedSize, customer["size"].Value<string>());
+                string actualSize = customer["size"].Value<string>();
+                string expectedSize = GetExpectedSize(employees); 
+
+                // Check if the actual size matches the expected size
+                if (actualSize != expectedSize){
+                     allCustomersCorrect = false;
+                     Console.WriteLine($"Mismatch found: Customer '{customerName}' with {employees} employees has size '{actualSize}', but expected size is '{expectedSize}'.");
+                }
             }
+
+            Assert.IsTrue(allCustomersCorrect, "One or more customers have incorrect size calculations.");
             Console.WriteLine("Verified that the response contains correctly calculated customer sizes.");
         }
 
+        // Calculate the expected size based on the number of employees
         private string GetExpectedSize(int employees)
         {
             if (employees <= 2500) return "Small";
