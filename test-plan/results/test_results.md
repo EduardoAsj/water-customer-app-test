@@ -52,7 +52,7 @@
 - **Status:** FAIL
 - **Result:** Most customers' names show their details as expected, but the "New York's Water" customers do not bring the contact person's name, only the e-mail. And it's not possible to verify the details for the customer "Denver's Water", given the problem in Test Case 6.
 - **Screenshot 1: Las Vegas Water Details Success Example** ![Las Vegas Water Details Success](./test_case_6_click_customer1.png)
-- **Screenshot 2: New York's Water Details Fail** ![New York's Water Details Fail](./test_case_6_click_customer2.png)
+- **Screenshot 2: New York's Water Details Fail** ![New York's Water Details Fail](./test_case_6_click_customer.png)
 - **Screenshot 3: Screen after clicking on Denver's Water** ![Denver's Water Details Failure](./customer_detail_error.png)
 - **Screenshot 4: Possible cause of the error** ![Possible cause of the error](./test_case_6_probable_cause.png)
 
