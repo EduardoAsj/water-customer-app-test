@@ -19,7 +19,7 @@ Before running the tests, ensure you have the following installed:
   - `test_plan.md` - Markdown file with the test plan.
   - `/results/test_results.md` - Markdown file with results and screenshots.
 
-- `/api-tests/WaterCustomerAppTest` - Contains all the API level tests written using NUnit and Playwright.
+- `/api-tests/WaterCustomerAppTest` - Contains all the API level tests written using NUnit and Specflow.
 
   - `Features` - Directory containing the feature files for API tests.
   - `StepDefinitions` - Directory containing the step definitions for API tests.
@@ -33,7 +33,7 @@ Before running the tests, ensure you have the following installed:
 **Clone the Repository:**
 
 ```bash
-git clone https://github.com/yourusername/water-customer-app-test.git
+git clone https://github.com/EduardoAsj/water-customer-app-test.git
 cd water-customer-app-test
 ```
 

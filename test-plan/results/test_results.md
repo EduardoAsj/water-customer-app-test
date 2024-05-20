@@ -83,16 +83,16 @@
   ### Test Case 11: POST Request with Empty Name
 
 - **Comment:** The "name" field is required in the frontend. Therefore, an empty name should result in an error response from the API.
-- **Status** FAIL
-- **Result** The response status code is "200 OK", but the response status code should be "400 Bad Request", and the response body should contain the error message "Please provide your name".
+- **Status:** FAIL
+- **Result:** The response status code is "200 OK", but the response status code should be "400 Bad Request", and the response body should contain the error message "Please provide your name".
 - **Recommendation:** Update the API to validate the "name" field. If the field is empty, the API should return a "400 Bad Request" status with an appropriate error message.
 - **Screenshot: Api Empty Name** ![Api Empty Name](./test_case_11_empty_name.png)
 
 ### Test Case 12: POST Request with Blank Request Body
 
 - **Comment:** The request body should not be blank. The API should validate the presence of required fields and return an appropriate error response if the request body is missing or empty.
-- **Status** FAIL
-- **Result** The response status code is "200 OK", but the response status code should be "400 Bad Request", and the response body should contain an error message indicating that the request body is required.
+- **Status:** FAIL
+- **Result:** The response status code is "200 OK", but the response status code should be "400 Bad Request", and the response body should contain an error message indicating that the request body is required.
 - **Recommendation:** Update the API to validate the request body. If the request body is blank, the API should return a "400 Bad Request" status with an appropriate error message.
 - **Screenshot: Api Blank Request** ![Api Blank Request](./test_case_12_blank_request_body.png)
 

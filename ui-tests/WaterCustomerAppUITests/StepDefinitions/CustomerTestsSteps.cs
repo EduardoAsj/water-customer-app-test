@@ -87,9 +87,9 @@ namespace WaterCustomerAppUITests.StepDefinitions
         public async Task MessageNoContactInfo(string expectedMessage)
         {
             var messageText = await _page.InnerTextAsync(
-                ".No contact info",
+                ".No contact info", // Replace selector
                 new PageInnerTextOptions { Timeout = 1000 }
-            ); // Replace selector
+            );
             Assert.AreEqual(expectedMessage, messageText);
         }
 

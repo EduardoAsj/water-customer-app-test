@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WaterCustomerAppTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d0b55091f144a5b1e89cc0ee8790baae354de7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+582a1a85a734ef086fc659af565fd925796a3f79")]
 [assembly: System.Reflection.AssemblyProductAttribute("WaterCustomerAppTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WaterCustomerAppTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
