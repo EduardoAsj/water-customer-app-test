@@ -57,7 +57,6 @@ namespace WaterCustomerAppTest.StepDefinitions
             Console.WriteLine($"Response Content: {response.Content}");
         }
 
-        // Verify that the response status 
         [Then(@"I should receive a bad request response")]
         public void ReceiveBadRequestResponse()
         {
